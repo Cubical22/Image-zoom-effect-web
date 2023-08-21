@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image zoom effect</title>
+    <script src="/js/app.js" defer></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 40px;
+        }
+
+        .hoveredImageHolderHolder {
+            display: none;
+
+            height: 300px;
+            aspect-ratio: 1/1;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .hoveredImageHolder {
+            display: inline-block;
+            overflow: hidden;
+            position: relative;
+
+            width: 100%;
+            height: 100%;
+
+            border-radius: 50vh;
+
+            background: rgba(128, 128, 128, 0.61);
+
+            border: 3px solid black;
+        }
+
+        .hoveredImageHolder img {
+            --x-dis: 0;
+            --y-dis: 0;
+            position: absolute;
+            left: var(--x-dis);
+            top: var(--y-dis);
+            zoom: 200%;
+        }
+    </style>
+</head>
+<body>
+    <img src="/assets/black_and_white_photography_01.jpg" style="display: inline-block;" alt="" onerror="this.style.display='none';" id="main-img">
+
+    <div class="hoveredImageHolderHolder">
+        <div class="hoveredImageHolder">
+            <img src="/assets/black_and_white_photography_01.jpg" alt="" onerror="this.style.display='none'" id="hover-img">
+        </div>
+    </div>
+</body>
+</html>
